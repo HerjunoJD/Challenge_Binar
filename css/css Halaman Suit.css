@@ -1,0 +1,115 @@
+body {
+    background-color: #9C835F;
+}
+
+header {
+    display: flex;
+    column-gap: 50px;
+    padding-left: 30px;
+    align-items: center;
+}
+
+.suitKotakTangan {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.suitKotakObjekMaster {
+    display: flex;
+    justify-content: center;
+}
+
+.suitKotakPlayer {
+    display: flex;
+    flex-direction: column;
+    object-fit: fill;
+    align-items: center;
+    row-gap: 30px;
+    margin-right: 25px;
+}
+
+.suitKotakPlayer img {
+    max-width: 75%;
+    max-height: 75%;
+}
+
+.suitKotakCOM {
+    display: flex;
+    flex-direction: column;
+    object-fit: fill;
+    align-items: center;
+    row-gap: 30px;
+    margin-left: 25px;
+}
+
+.suitKotakCOM img {
+    max-width: 75%;
+    max-height: 75%;
+}
+
+.suitPembatasKotakObjek {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #BD0000;
+    font-size: 48px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-top: 175px;
+    font-family: sans-serif;
+}
+
+.suitPembatasKotakObjek img {
+    padding-top: 25px;
+}
+
+.suitKotakPlayerWin {
+    width: 150px;
+    height: 75px;
+    transform: rotate(-45deg);
+    background-color: #4C9654;
+    border-radius: 5px;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.suitKotakCOMWin {
+    width: 150px;
+    height: 75px;
+    transform: rotate(-45deg);
+    background-color: #4C9654;
+    border-radius: 5px;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.suitKotakDraw {
+    width: 150px;
+    height: 75px;
+    transform: rotate(-45deg);
+    background-color: #035B0C;
+    border-radius: 5px;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.suitPembatasKotakObjek img {
+    height: 50px;
+    width: 50px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css Halaman Suit.css">
+    <title>Permainan Suit - Gunting Batu Kertas</title>
+</head>
+<body>
+    <!-- Ini bagian header tempat logo, judul game, serta tombol untuk kembali -->
+    <header>
+        <h1 onclick="window.open('Halaman Depan.html')">&lt;</h1>
+        <img src="css/assets/logo 1.png" alt="Logo" width="50px" height="50px">
+        <h1 style="color: #F9B23D;">ROCK PAPER SCISSORS</h1>
+    </header>
+    <!-- Ini kotak pembungkus total yang mencakup semua selain objek-objek di header -->
+    <div class="suitKotakObjekMaster">
+        <!-- Ini kotak yang menampung objek2 milik player -->
+        <div class="suitKotakPlayer" id="suitTanganPlayer">
+            <h1>PLAYER 1</h1>
+            <div class="suitKotakTangan"><img src="css/assets/batu.png" alt="Batu"></div>
+            <div class="suitKotakTangan"><img src="css/assets/kertas.png" alt="Kertas"></div>
+            <div class="suitKotakTangan"><img src="css/assets/gunting.png" alt="Gunting"></div>
+        </div>
+        <!-- Ini kotak yang menjadi penengah antara objek player dan com -->
+        <div id="suitIDPembatasKotakObjek" class="suitPembatasKotakObjek">
+            <h1 id="suitDisplayHasil">VS</h1>
+            <div class="suitKotakPlayerWin" id="suitDisplayPlayerWin"><p>PLAYER 1 WIN</p></div>
+            <div class="suitKotakCOMWin" id="suitDisplayCOMWin"><p>COM WIN</p></div>
+            <div class="suitKotakDraw" id="suitDisplayDraw"><p>DRAW</p></div>
+            <img id="suitReset" src="css/assets/refresh.png" alt="Refresh">
+        </div>
+        <!-- Ini kotak yang menampung objek2 milik com -->
+        <div class="suitKotakCOM" id="suitTanganCOM">
+            <h1>COM</h1>
+            <div class="suitKotakTangan"><img src="css/assets/batu.png" alt="Batu"></div>
+            <div class="suitKotakTangan"><img src="css/assets/kertas.png" alt="Kertas"></div>
+            <div class="suitKotakTangan"><img src="css/assets/gunting.png" alt="Gunting"></div>
+        </div>
+    </div>
+<script src="js/Script Halaman Suit.js"></script>
+</body>
+</html>

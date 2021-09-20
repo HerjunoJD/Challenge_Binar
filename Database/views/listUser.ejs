@@ -29,9 +29,10 @@
           <td><%= user[i].user_biodata? `${user[i].user_biodata.name}`: '' %></td>
           <td><%= user[i].user_biodata? `${user[i].user_biodata.address}`: '' %></td>
           <td><%= user[i].user_biodata? `${user[i].user_biodata.phone_number}`: '' %></td>
-          <!-- Tombol di bawah digunakan untuk menghilangkan data user yang bersangkutan -->
+          <!-- Tombol di bawah digunakan untuk pindah ke halaman edit biodata user yang -->
           <td><button type="button" class="btn btn-info"
                       onclick="window.location.href = `/users/<%= user[i].id %>`">Edit</button></td>
+          <!-- Tombol di bawah digunakan untuk menghilangkan data user yang bersangkutan -->
           <td><button type="button" class="btn btn-danger"
                         onclick="deleteUser(`<%= user[i].id %>`)">Delete</button></td>
         </tr>

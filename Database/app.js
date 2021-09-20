@@ -4,9 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+if(typeof localStorage === "undefined" || localStorage === null){
+  var LocalStorage = require('node-localstorage').LocalStorage;
+  localStorage = new LocalStorage('./scratch');
+}
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
+var historyRouter = require('./routes/history');
 
 var app = express();
 
@@ -20,9 +26,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/login', loginRouter);
+
+//Pantau
+app.use(function(req, res, next){
+  if(localStorage.getItem('loginDatabase') == 'Access'){
+    next();
+  }else{
+    res.redirect('/login');
+  }
+})
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/login', loginRouter);
+app.use('/history', historyRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

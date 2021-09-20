@@ -14,8 +14,11 @@ router.get('/', function(req, res){
 //Barisan koding ini digunakan untuk menampilkan halaman biodataUser.ejs
 //Halaman ini digunakan untuk tampil muka dalam mengganti biodata salah satu user di database
 router.get('/:id', async(req, res) => { 
-  res.render('biodataUser');
-  const updateUser = await user_game.findOne({where : {id: req.params.id}});
+  const user = await user_game.findOne({
+    where: {id: req.params.id},
+    include: [{model: user_game_biodata, as: 'user_biodata'}]
+  })
+  res.render('biodataUser', {user});
 })
 
 //Barisan koding ini untuk menambah data user baru ke database
@@ -74,6 +77,8 @@ router.delete('/:id', async(req, res) => {
   if(!deleteUser){
     return res.status(400).json({message: 'Data user yang akan dihapus tidak ada'});
   }
+  //Bagian ini juga menghapus biodata user yang didelete sekaligus mengembalikan pesan sukses
+  user_game_biodata.destroy({where : {user_game_id: req.params.id}});
   return res.status(201).json({code: 201, message: 'Data telah berhasil dihapus'});
 })
 

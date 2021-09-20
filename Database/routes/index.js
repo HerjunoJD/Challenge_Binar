@@ -1,6 +1,6 @@
 var express = require('express');
 const { get } = require('.');
-const {user_game, user_game_biodata, user_game_history} = require('../models');
+const {user_game, user_game_biodata} = require('../models');
 var router = express.Router();
 
 router.get('/', async (req, res) => {

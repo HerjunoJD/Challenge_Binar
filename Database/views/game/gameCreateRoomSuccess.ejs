@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+      <p>Halaman Sukses Create Room</p>
+      <p><%= uniquecode %></p>
+      <p>Url = http:localhost:3000/game/roomvalidation/<%= room_id %></p>
+
+      <button onclick="toValidate()">Play</button>
+  </body>
+  <script>
+      function toValidate(){
+          location.href = "http://localhost:3000/game/roomvalidation/<%= room_id %>"
+      }
+  </script>

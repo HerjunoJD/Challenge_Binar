@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <h1>History of <%= user.username %>'s Gameplay</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Point</th>
+          <th scope="col">Total Play</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < user.user_history.length; i++) { %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><%= user.user_history[i].point %></td>
+            <td><%= user.user_history[i].total_play %></td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head"); %>
+  <body>
+      <p>Ini adalah dashboard</p>
+      <button onclick="toCreate()">Create Room</button>
+      <button onClick="toEnter()">Enter Room</button>
+  </body>
+  <script>
+      function toCreate(){
+          location.href = "http://localhost:3000/game/createroom"
+      }
+      function toEnter(){
+          location.href= "http://localhost:3000/game/enterroom"
+      }
+  </script>

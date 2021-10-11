@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head"); %>
+  <body>
+    <form method = "POST" action="/register">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" name="username" placeholder="Insert your username">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Insert your password">
+          <div id="passwordHelp" class="form-text">Password minimal menggunakan 8 karakter</div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Insert your email">
+        </div>
+        <label for="isAdmin" value="false"></label>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </body>
+</html>

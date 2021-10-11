@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Fungsi ini digunakan untuk mengulang tabel di bawah sebanyak jumlah user di database -->
+        <% for(let i = 0; i < user.length; i++) { %>
+        <tr>
+          <td><%= i + 1 %></td>
+          <td><%= user[i].username %></td>
+          <td><%= user[i].email %></td>
+          <td><%= user[i].user_biodata? `${user[i].user_biodata.name}`: '' %></td>
+          <td><%= user[i].user_biodata? `${user[i].user_biodata.address}`: '' %></td>
+          <td><%= user[i].user_biodata? `${user[i].user_biodata.phone_number}`: '' %></td>
+          <!-- Tombol di bawah digunakan untuk pindah ke halaman edit biodata user -->
+          <td><button type="button" class="btn btn-info"
+                      onclick="window.location.href = `/users/<%= user[i].id %>`">Edit</button></td>
+          <!-- Tombol di bawah digunakan untuk menghilangkan data user yang bersangkutan -->
+          <td><button type="button" class="btn btn-danger"
+                        onclick="deleteUser(`<%= user[i].id %>`)">Delete</button></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <script>
+      // Ini adalah fungsi yang digunakan untuk menghilangkan data user
+      // Yang nantinya ditempel ke tombol button delete di atas
+      function deleteUser(id){
+        alert('Apakah anda yakin ingin melenyapkan user ini?')
+        fetch('/admin/user/' + id, {
+              method: 'DELETE',
+            })
+            .then(res => res.text()) // or res.json()
+            .then(res => console.log(res))
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head"); %>
+  <body>
+      <p>Ini adalah index</p>
+      <button onclick="toLogin()">Login</button>
+      <button onclick="toRegister()">Register</button>
+  </body>
+  <script>
+    function toLogin(){
+      location.href = "http://localhost:3000/login"
+    }
+    function toRegister(){
+      location.href = "http://localhost:3000/register"
+    }
+  </script>
+</html>

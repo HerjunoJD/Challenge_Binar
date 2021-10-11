@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <form action="/users/<%= user.id %>" method = "POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" name="name"
+                 placeholder="<%= user.user_biodata? `${user.user_biodata.name}`: '' %>">
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" name="address"
+                 placeholder="<%= user.user_biodata? `${user.user_biodata.address}`: '' %>">
+        </div>
+        <div class="mb-3">
+          <label for="phone_number" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" name="phone_number"
+                 placeholder="<%= user.user_biodata? `${user.user_biodata.phone_number}`: '' %>">
+        </div>
+        <div class="mb-3">
+          <label for="date_of_birth" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" name="date_of_birth"
+                 placeholder="<%= user.user_biodata? `${user.user_biodata.date_of_birth}`: '' %>">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </body>
+</html>

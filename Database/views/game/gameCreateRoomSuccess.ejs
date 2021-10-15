@@ -2,10 +2,14 @@
 <html lang="en">
   <%- include("../partials/head"); %>
   <body>
-      <p>Halaman Sukses Create Room</p>
-      <p><%= uniquecode %></p>
+    <%- include("../partials/navbar"); %>
+    <br>
+    <br>
+      <p>Room telah selesai dibuat</p>
+      <p>Kode room : <%= uniquecode %></p>
       <p>Url = http:localhost:3000/game/roomvalidation/<%= room_id %></p>
 
+      <p>Silahkan tekan tombol di bawah untuk masuk ke room</p>
       <button onclick="toValidate()">Play</button>
   </body>
   <script>

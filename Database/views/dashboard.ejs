@@ -2,9 +2,17 @@
 <html lang="en">
   <%- include("partials/head"); %>
   <body>
-      <p>Ini adalah dashboard</p>
-      <button onclick="toCreate()">Create Room</button>
-      <button onClick="toEnter()">Enter Room</button>
+      <%- include("partials/navbar"); %>
+      <div class="row" style="padding-top: 100px">
+        <div class="col-4"></div>
+        <div class="col-2">
+            <button class="tombol" onclick="toCreate()">Create Room</button>
+        </div>
+        <div class="col-2">
+            <button class="tombol" onClick="toEnter()">Enter Room</button>
+        </div>
+        <div class="col-4"></div>
+      </div>
   </body>
   <script>
       function toCreate(){

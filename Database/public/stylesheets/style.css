@@ -1,6 +1,6 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: beige;
 }
 
 a {
@@ -28,4 +28,14 @@ a {
 .suitKotakPlayer img {
   max-width: 75%;
   max-height: 75%;
+}
+
+/* Bagian Bootsrap Navbar */
+
+.navbar {
+  justify-content: flex-start;
+}
+
+.navbar-nav {
+  flex-direction: row;
 }

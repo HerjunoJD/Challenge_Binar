@@ -2,9 +2,17 @@
 <html lang="en">
   <%- include("partials/head"); %>
   <body>
-      <p>Ini adalah index</p>
-      <button onclick="toLogin()">Login</button>
-      <button onclick="toRegister()">Register</button>
+      <%- include("partials/navbar"); %>
+      <div class="row" style="padding-top: 100px">
+        <div class="col-4"></div>
+        <div class="col-2">
+          <button class="tombol" onclick="toLogin()">Login</button>
+        </div>
+        <div class="col-2">
+          <button class="tombol" onclick="toRegister()">Register</button>
+        </div>
+        <div class="col-4"></div>
+        </div>
   </body>
   <script>
     function toLogin(){

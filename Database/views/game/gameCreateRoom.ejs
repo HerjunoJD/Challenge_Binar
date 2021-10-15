@@ -1,9 +1,16 @@
-<p>Create Room</p>
-<form method ="POST" action ="/game/createroom" >
-    <label for="room_name">Input Nama Room</label>
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <%- include("../partials/navbar"); %>
     <br>
-    <input type="text" name="room_name" placeholder ="Masukkan nama room" >
     <br>
-    <br>
-    <button type="submit">Submit</button>
-</form>
+    <form method ="POST" action ="/game/createroom" >
+        <label for="room_name">Silahkan masukkan nama Room yang anda inginkan</label>
+        <br>
+        <input type="text" name="room_name" placeholder ="Masukkan nama room" >
+        <br>
+        <br>
+        <button class="tombol" type="submit">Submit</button>
+    </form>
+  </body>

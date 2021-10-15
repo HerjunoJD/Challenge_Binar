@@ -72,30 +72,48 @@ module.exports = {
     rpsFightVisual: async(req, res) => {
         await master_room.findOne({where : {id : req.params.id}})
         .then(result => {
-            res.render('game/gameRoom')
+            if(req.user.dataValues.id == result.id_player_1){
+                res.render('game/gameRoomPlayer1', {room_id:req.params.id})
+            } else if (req.user.dataValues.id == result.id_player_2){
+                res.render('game/gameRoomPlayer2', {room_id:req.params.id})
+            } else {
+                res.redirect('/dashboard')
+            }
         })
     },
 
     //Barisan kode ini digunakan untuk mensimulasikan permainan suit
     //Tetapi masih work in progress
     rpsFight: async(req, res) => {
-        await user_in_room.findOne({where : {room_id : req.params.id}})
+        await master_room.findOne({where : {id : req.params.id}})
         .then(result => {
-            if(req.user.dataValues.id == result.id_player_1 && player_2_choice == null){
+            if(req.user.dataValues.id == result.id_player_1){
                 user_in_room.update(
-                    {player_1_choice : null},
-                    {where: {id : req.params.id}}
-                    )
-            }
-            else if(req.user.dataValues.id == result.id_player_2 && player_1_choice == null){
-                //???
-            }
-            else if(req.user.dataValues.id == result.id_player_1 && player_2_choice != null){
-                //next
-            }
-            else if(req.user.dataValues.id == result.id_player_2 && player_2_choice != null){
-                //next
+                    {player_1_choice : req.body.player_1_choice},
+                    {where : {room_id : req.params.id}}
+                )
+            } else if(req.user.dataValues.id == result.id_player_2){
+                user_in_room.update(
+                    {player_2_choice : req.body.player_2_choice},
+                    {where : {room_id : req.params.id}}
+                )
             }
         })
+            // if(req.user.dataValues.id == result.id_player_1 && player_2_choice == null){
+            //     user_in_room.update(
+            //         {player_1_choice : null},
+            //         {where: {id : req.params.id}}
+            //         )
+            // }
+            // else if(req.user.dataValues.id == result.id_player_2 && player_1_choice == null){
+            //     //???
+            // }
+            // else if(req.user.dataValues.id == result.id_player_1 && player_2_choice != null){
+            //     //next
+            // }
+            // else if(req.user.dataValues.id == result.id_player_2 && player_2_choice != null){
+            //     //next
+            // }
+        
     }
 }

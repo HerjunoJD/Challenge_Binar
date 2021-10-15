@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head"); %>
+  <body>
+    <%- include("../partials/navbar"); %>
+      <div class="suitKotakPlayer">
+        <h1>RPS</h1>
+        <div class="suitKotakTangan" id="suitBatu">
+            <img src="/images/batu.png" alt="Batu">
+        </div>
+        <div class="suitKotakTangan" id="suitKertas">
+            <img src="/images/kertas.png" alt="Kertas">
+        </div>
+        <div class="suitKotakTangan" id="suitGunting">
+            <img src="/images/gunting.png" alt="Gunting">
+        </div>
+      </div>
+  </body>
+  <script src=" https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    class Game{
+      constructor(){}
+
+      playGame(choice){
+        let hand = null
+        if (choice === 0){
+          console.log(choice)
+          hand = 0
+        } else if (choice === 1){
+          console.log(choice)
+          hand = 1
+        } else {
+          console.log(choice)
+          hand = 2
+        }
+
+        var data = JSON.stringify({
+          "room_id" : '<%= room_id %>',
+          "player_2_choice" : hand
+        });
+
+        var config = {
+          method: "POST",
+          url: "http://localhost:3000/game/rpsroom/20",
+          headers: {
+            'Content-Type' : 'application/json',
+            'Accept' : '/',
+            'Cache-Control' : 'no-cache',
+            'Cookie' : document.cookie
+          },
+          data : data
+        };
+
+        axios(config)
+        .then(function (response){
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error){
+          console.log(error);
+        })
+      }
+    }
+
+    const game = new Game;
+    const Batu = document.getElementById('suitBatu');
+    const Kertas = document.getElementById('suitKertas');
+    const Gunting = document.getElementById('suitGunting');
+
+    Batu.onclick = function(){
+      game.playGame(0)
+    };
+    Kertas.onclick = function(){
+      game.playGame(1)
+    };
+    Gunting.onclick = function(){
+      game.playGame(2)
+    };
+
+  </script>
